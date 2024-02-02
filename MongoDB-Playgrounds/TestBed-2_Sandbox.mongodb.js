@@ -1,3 +1,3 @@
-use('Staging')
+use('Staging');
 
-db.todos.find().toArray()
+db.todos.find().toArray();

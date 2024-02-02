@@ -14,8 +14,8 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next"
-      }
+        "name": "next",
+      },
     ],
     "paths": {
       "@/*": ["./src/*"],
@@ -25,8 +25,8 @@
       "@/api/*": ["./pages/api/*"],
       "@/types/*": ["./types/*"],
       "@/serverUtils/*": ["./utils/*"],
-    }
+    },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/fetchers/todos/getTodos.tx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
