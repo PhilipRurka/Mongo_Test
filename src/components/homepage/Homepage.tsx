@@ -13,7 +13,7 @@ type UpdateTodos = (url: string, obj: { arg: TodoReq }) => Promise<Response | un
 
 const updateTodosSWR: UpdateTodos = (url, { arg }) => addTodo(arg);
 
-const Homepage = (_rest: HomepageProps) => {
+const Homepage = (rest: HomepageProps) => {
   const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodosSWR);
 
   const handleAddNewTodo = () => {
