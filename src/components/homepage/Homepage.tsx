@@ -20,7 +20,7 @@ const Homepage = (rest: HomepageProps) => {
     updateTodos({
       title: '123',
       message: 'This is a test message!! Yay?',
-      priority: 'high',
+      priority: 'low',
     });
   };
 
