@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next lint && next build",
     "start": "next start",
-    "prepare": "husky && husky install",
+    "lint": "next lint",
+    "prepare": "husky install",
     "debug-prettier": "npx prettier --debug-check ."
   },
   "dependencies": {
