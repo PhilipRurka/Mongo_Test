@@ -1,9 +1,11 @@
 'use client';
 
-import addTodo from '@/fetchers/todos/addTodo';
-import { Todos } from '../todos';
 import useSWRMutation from 'swr/mutation';
+
+import addTodo from '@/fetchers/todos/addTodo';
 import { TodoReq } from '@/types/todos';
+
+import { Todos } from '../todos';
 
 type HomepageProps = {};
 

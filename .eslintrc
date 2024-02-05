@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/extensions": "off",
+    "react/no-unescaped-entities": "off"
+  },
+  "ignorePatterns": [
+    "node_modules",
+    ".next",
+    "public"
+  ]
+}
