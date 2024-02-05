@@ -11,7 +11,7 @@ type HomepageProps = {};
 
 type UpdateTodos = (url: string, obj: { arg: TodoReq }) => Promise<Response | undefined>;
 
-const updateTodosSWR: UpdateTodos = (_url, { arg }) => addTodo(arg);
+const updateTodosSWR: UpdateTodos = (url, { arg }) => addTodo(arg);
 
 const Homepage = (_rest: HomepageProps) => {
   const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodosSWR);
