@@ -1,5 +1,6 @@
-import getTodos from '@/fetchers/todos/getTodos';
 import useSWR from 'swr';
+
+import getTodos from '@/fetchers/todos/getTodos';
 
 const useGetTodos = () => {
   const { data, isLoading, error } = useSWR(`/api/todos`, () => getTodos());

@@ -13,7 +13,9 @@ const addTodo = async (data: AddTodoProps) => {
 
   if (response.ok) return response;
 
-  console.error(response.statusText);
+  const res = await response.json();
+
+  return res;
 };
 
 export default addTodo;

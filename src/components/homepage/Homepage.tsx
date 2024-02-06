@@ -7,13 +7,11 @@ import { TodoReq } from '@/types/todos';
 
 import { Todos } from '../todos';
 
-type HomepageProps = {};
-
 type UpdateTodos = (url: string, obj: { arg: TodoReq }) => Promise<Response | undefined>;
 
 const updateTodosSWR: UpdateTodos = (url, { arg }) => addTodo(arg);
 
-const Homepage = (rest: HomepageProps) => {
+const Homepage = () => {
   const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodosSWR);
 
   const handleAddNewTodo = () => {
@@ -23,8 +21,6 @@ const Homepage = (rest: HomepageProps) => {
       priority: 'low',
     });
   };
-
-  debugger;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

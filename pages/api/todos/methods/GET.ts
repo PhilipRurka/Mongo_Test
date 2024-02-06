@@ -1,5 +1,6 @@
-import { mongoConnect } from '@/serverUtils/mongoConnect';
 import { NextApiResponse } from 'next';
+
+import { mongoConnect } from '@/serverUtils/mongoConnect';
 
 const todosGet = async (res: NextApiResponse) => {
   const mc = await mongoConnect('todos');
@@ -10,7 +11,20 @@ const todosGet = async (res: NextApiResponse) => {
   }
 
   try {
-    const data = await mc.collection.find().toArray();
+    const data = await mc.collection
+      .aggregate([
+        {
+          $addFields: {
+            id: '$_id',
+          },
+        },
+        {
+          $project: {
+            _id: 0,
+          },
+        },
+      ])
+      .toArray();
 
     res.status(200).json({ data });
   } catch (error) {
