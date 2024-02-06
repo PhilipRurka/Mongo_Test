@@ -13,7 +13,7 @@ export type TodoReq = {
 };
 
 export type TodoFrontend = {
-  _id: string;
+  id: string;
   title: string;
   created_at: Date;
   last_updated: Date;
