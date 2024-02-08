@@ -1,14 +1,12 @@
-import { TodoReq } from '@/types/todos';
+type DeleteTodoProps = string;
 
-type AddTodoProps = TodoReq;
-
-const addTodo = async (data: AddTodoProps) => {
+const deleteTodoFetcher = async (data: DeleteTodoProps) => {
   const response = await fetch('/api/todos', {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ data }),
+    body: JSON.stringify(data),
   });
 
   if (response.ok) return response;
@@ -18,4 +16,4 @@ const addTodo = async (data: AddTodoProps) => {
   return res;
 };
 
-export default addTodo;
+export default deleteTodoFetcher;

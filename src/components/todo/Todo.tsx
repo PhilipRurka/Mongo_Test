@@ -1,16 +1,38 @@
-import { TodoFrontend } from '@/types/todos';
+import useSWRMutation from 'swr/mutation';
+
+import deleteTodoFetcher from '@/Fetchers/todos/deleteTodoFetcher';
+import { TodoFrontend } from '@/Types/todos';
 
 type TodoProps = {
   todo: TodoFrontend;
 };
 
-const Todo = ({ todo: { title, message, priority, last_updated } }: TodoProps) => (
-  <div className="mb-4">
-    <span>{title}</span>
-    <p>{message}</p>
-    <span>{`Priority: ${priority}`}</span>
-    <span className="block">{`Last Updated: ${last_updated}`}</span>
-  </div>
-);
+type DeleteTodos = (url: string, obj: { arg: string }) => Promise<Response | undefined>;
+
+const deleteTodoSWR: DeleteTodos = (url, { arg }) => deleteTodoFetcher(arg);
+
+const Todo = ({ todo: { id, title, message, priority, last_updated } }: TodoProps) => {
+  const { trigger: deleteTodo } = useSWRMutation('/api/todos', deleteTodoSWR);
+
+  const handleDelete = () => {
+    deleteTodo(id);
+  };
+
+  return (
+    <div className="flex justify-between rounded-xl border border-cyan-600 p-4">
+      <div>
+        <span>{title}</span>
+        <p>{message}</p>
+        <span>{`Priority: ${priority}`}</span>
+        <span className="block">{`Last Updated: ${last_updated}`}</span>
+      </div>
+      <div>
+        <button className="rounded-xl border border-red-400 bg-red-200 p-2" onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Todo;

@@ -46,5 +46,6 @@
   "lint-staged": {
     "**/*.ts": "eslint",
     "**/*.tsx": "eslint"
-  }
+  },
+  "type": "module"
 }

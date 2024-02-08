@@ -1,6 +1,3 @@
-// import pluginSortImports from '@trivago/prettier-plugin-sort-imports'
-// import pluginTailwindcss from 'prettier-plugin-tailwindcss'
-
 const pluginSortImports = require("@trivago/prettier-plugin-sort-imports");
 const pluginTailwindcss = require("prettier-plugin-tailwindcss");
 

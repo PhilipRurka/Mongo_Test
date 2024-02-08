@@ -1,12 +1,14 @@
 import useSWR from 'swr';
 
-import getTodos from '@/fetchers/todos/getTodos';
+import getTodosFetcher from '@/Fetchers/todos/getTodosFetcher';
 
 const useGetTodos = () => {
-  const { data, isLoading, error } = useSWR(`/api/todos`, () => getTodos());
+  const { data, isLoading, error } = useSWR(`/api/todos`, () => getTodosFetcher());
+
+  const trimData = data ? data.data : undefined;
 
   return {
-    todos: data,
+    todos: trimData,
     isTodosLoading: isLoading,
     isTodosError: error,
   };

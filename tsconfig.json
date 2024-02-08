@@ -14,19 +14,20 @@
     "incremental": true,
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/fetchers/*": ["./src/fetchers/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/api/*": ["./pages/api/*"],
-      "@/types/*": ["./types/*"],
-      "@/serverUtils/*": ["./utils/*"],
+      "@/Components/*": ["./src/components/*"],
+      "@/Fetchers/*": ["./src/fetchers/*"],
+      "@/Styles/*": ["./src/styles/*"],
+      "@/Hooks/*": ["./src/hooks/*"],
+      "@/Api/*": ["./pages/api/*"],
+      "@/Types/*": ["./types/*"],
+      "@/ServerUtils/*": ["./utils/*"],
     },
+    "target": "es2021"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/fetchers/todos/getTodos.tx"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }

@@ -2,17 +2,16 @@
 
 import useSWRMutation from 'swr/mutation';
 
-import addTodo from '@/fetchers/todos/addTodo';
-import { TodoReq } from '@/types/todos';
-
-import { Todos } from '../todos';
+import { Todos } from '@/Components/todos';
+import addTodoFetcher from '@/Fetchers/todos/addTodoFetcher';
+import { TodoReq } from '@/Types/todos';
 
 type UpdateTodos = (url: string, obj: { arg: TodoReq }) => Promise<Response | undefined>;
 
-const updateTodosSWR: UpdateTodos = (url, { arg }) => addTodo(arg);
+const updateTodoSWR: UpdateTodos = (url, { arg }) => addTodoFetcher(arg);
 
 const Homepage = () => {
-  const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodosSWR);
+  const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodoSWR);
 
   const handleAddNewTodo = () => {
     updateTodos({

@@ -15,6 +15,10 @@
   "ignorePatterns": [
     "node_modules",
     ".next",
-    "public"
+    "public",
+    "postcss.config.cjs",
+    "prettier.config.cjs",
+    "next.config.mjs",
+    "MongoDB-Playgrounds/*"
   ]
 }
