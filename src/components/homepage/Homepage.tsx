@@ -2,7 +2,7 @@
 
 import useSWRMutation from 'swr/mutation';
 
-import { Todos } from '@/Components/todos';
+import Todos from '@/Components/todos';
 import addTodoFetcher from '@/Fetchers/todos/addTodoFetcher';
 import { TodoReq } from '@/Types/todos';
 

@@ -1,4 +1,4 @@
-import { Todo } from '@/Components/todo';
+import Todo from '@/Components/todo';
 import useGetTodos from '@/Hooks/swr/useGetTodos';
 
 const Todos = () => {

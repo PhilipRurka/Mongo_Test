@@ -1,3 +1,3 @@
-/* eslint-disable import/prefer-default-export */
+import Homepage from './Homepage';
 
-export { default as Homepage } from './Homepage';
+export default Homepage;

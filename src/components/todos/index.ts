@@ -1,3 +1,3 @@
-/* eslint-disable import/prefer-default-export */
+import Todos from './Todos';
 
-export { default as Todos } from './Todos';
+export default Todos;

@@ -1,3 +1,3 @@
-/* eslint-disable import/prefer-default-export */
+import Todo from './Todo';
 
-export { default as Todo } from './Todo';
+export default Todo;
