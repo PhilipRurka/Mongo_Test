@@ -15,8 +15,6 @@ const addTodoFetcher = async (data: AddTodoProps) => {
 
   const res = await response.json();
 
-  debugger;
-
   return res;
 };
 
