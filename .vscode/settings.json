@@ -1,5 +1,4 @@
 {
-  // Start Prettier
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -14,5 +13,4 @@
     "node_modules": true,
     "yarn.lock": true
   }
-  // End Prettier
 }

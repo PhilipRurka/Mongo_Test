@@ -24,7 +24,7 @@
       "@/Hooks/*": ["./src/hooks/*"],
       "@/Api/*": ["./pages/api/*"],
       "@/Types/*": ["./types/*"],
-      "@/ServerUtils/*": ["./utils/*"],
+      "@/ServerUtils/*": ["./utils/*"]
     },
     "target": "es2021"
   },

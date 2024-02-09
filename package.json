@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format-prettier": "prettier --write .",
     "debug-prettier": "npx prettier --debug-check .",
-    "init-husky": "yarn husky-post-install && yarn husky-allow-execute ",
-    "husky-post-install": "rm -rf .git/hooks && ln -s ../.husky .git/hooks",
+    "husky-post-install": "husky install && rm -rf .git/hooks && ln -s ../.husky .git/hooks",
     "husky-allow-execute": "chmod +x .husky/pre-commit .husky/pre-push && chmod +x .git/hooks/pre-commit .git/hooks/pre-push && husky install"
   },
   "dependencies": {
