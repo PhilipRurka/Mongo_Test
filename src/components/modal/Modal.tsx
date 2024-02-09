@@ -10,6 +10,7 @@ const Modal = ({ children, handleCloseModal }: ModalProps) => {
     handleCloseModal();
   };
 
+  console.log('');
   debugger;
 
   return (
