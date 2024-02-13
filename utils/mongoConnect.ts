@@ -9,13 +9,13 @@ type MongoReturn =
     };
 type MongoConnect = (collection: CollectionsOptions) => Promise<MongoReturn>;
 
-export const mongoConnect: MongoConnect = async (collection) => {
+const mongoConnect: MongoConnect = async (collection) => {
   try {
     if (!process.env.MONGODB_URI) {
       throw Error('Client Failed');
     }
 
-    let client = new MongoClient(process.env.MONGODB_URI);
+    const client = new MongoClient(process.env.MONGODB_URI);
 
     await client.connect();
     const database = client.db(process.env.MONGODB_DATABASE);
@@ -26,6 +26,8 @@ export const mongoConnect: MongoConnect = async (collection) => {
       `Bad connection with MongoDB -> Database: ${process.env.MONGODB_DATABASE} -> Collection: ${collection}`
     );
 
-    return;
+    return undefined;
   }
 };
+
+export default mongoConnect;

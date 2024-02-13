@@ -4,8 +4,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "import/extensions": "off",
-    "react/no-unescaped-entities": "off"
+    "import/extensions": "off"
   },
   "ignorePatterns": [
     "node_modules",

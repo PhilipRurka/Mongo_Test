@@ -1,6 +1,6 @@
 import { Document } from 'mongodb';
 
-import { mongoConnect } from '@/ServerUtils/mongoConnect';
+import mongoConnect from '@/ServerUtils/mongoConnect';
 
 type SuccessGet = [{ data: Document[] }, { status: number }];
 type ErrorGet = [{ data: { message: string } }, { status: number }];
@@ -13,6 +13,7 @@ type CatchError = {
 
 const todosGet = async (): TodosGetReturn => {
   const mc = await mongoConnect('todos');
+
   if (!mc) {
     return [{ data: { message: 'Something went wrong with MongoConnection!' } }, { status: 500 }];
   }

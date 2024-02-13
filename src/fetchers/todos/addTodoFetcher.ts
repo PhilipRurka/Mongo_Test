@@ -4,7 +4,7 @@ type AddTodoProps = TodoReq;
 
 const addTodoFetcher = async (data: AddTodoProps) => {
   const response = await fetch('/api/todos', {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },

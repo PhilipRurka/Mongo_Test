@@ -1,30 +1,32 @@
 'use client';
 
-import useSWRMutation from 'swr/mutation';
+import { useState } from 'react';
 
 import Todos from '@/Components/todos';
-import addTodoFetcher from '@/Fetchers/todos/addTodoFetcher';
-import { TodoReq } from '@/Types/todos';
 
-type UpdateTodos = (url: string, obj: { arg: TodoReq }) => Promise<Response | undefined>;
-
-const updateTodoSWR: UpdateTodos = (url, { arg }) => addTodoFetcher(arg);
+import AddNewTodo from '../addNewTodo';
+import Modal from '../modal';
 
 const Homepage = () => {
-  const { trigger: updateTodos } = useSWRMutation('/api/todos', updateTodoSWR);
+  const [isNewTodoModalOpen, setIsNewTodoModalOpen] = useState(false);
 
-  const handleAddNewTodo = () => {
-    updateTodos({
-      title: '123',
-      message: 'This is a test message!! Yay?',
-      priority: 'low',
-    });
+  const handleOpenNewTodoModal = () => {
+    setIsNewTodoModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsNewTodoModalOpen(false);
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {isNewTodoModalOpen && (
+        <Modal width="md" handleCloseModal={handleCloseModal}>
+          <AddNewTodo handleCloseModal={handleCloseModal} />
+        </Modal>
+      )}
       <Todos />
-      <button onClick={handleAddNewTodo}>Add new todo!</button>
+      <button onClick={handleOpenNewTodoModal}>Add new todo!</button>
     </main>
   );
 };

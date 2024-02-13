@@ -34,7 +34,7 @@ const Todo = ({ todo: { id, title, message, priority, last_updated } }: TodoProp
   return (
     <>
       {isEditModalOpen && (
-        <Modal handleCloseModal={handleCloseEditModal}>
+        <Modal width="md" handleCloseModal={handleCloseEditModal}>
           <EditTodo />
         </Modal>
       )}

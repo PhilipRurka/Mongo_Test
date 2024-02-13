@@ -1,9 +1,9 @@
 import TodoForm from '../todoForm';
 
 const EditTodo = () => {
-  console.log('');
+  const handleFormSubmit = () => {};
 
-  return <TodoForm />;
+  return <TodoForm handleFormSubmit={handleFormSubmit} />;
 };
 
 export default EditTodo;

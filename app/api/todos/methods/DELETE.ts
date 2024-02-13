@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 
-import { mongoConnect } from '@/ServerUtils/mongoConnect';
+import mongoConnect from '@/ServerUtils/mongoConnect';
 
 type TodoPostReturn = Promise<[{ data: { message: string } }, { status: number }]>;
 
