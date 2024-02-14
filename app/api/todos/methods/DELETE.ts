@@ -1,5 +1,6 @@
 import { ObjectId } from 'mongodb';
 
+import TodoModel from '@/Models/todos';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 
 type TodoPostReturn = Promise<[{ data: { message: string } }, { status: number }]>;
@@ -9,15 +10,16 @@ type CatchError = {
 };
 
 const todosDelete = async (reqData: ObjectId): TodoPostReturn => {
-  const mc = await mongoConnect('todos');
-  if (!mc) {
+  try {
+    await mongoConnect();
+  } catch (error) {
     return [{ data: { message: 'Something went wrong with MongoConnection!' } }, { status: 500 }];
   }
 
   try {
     const reqDataObjectId = new ObjectId(reqData);
 
-    const response = await mc.collection.deleteOne({ _id: reqDataObjectId });
+    const response = await TodoModel.collection.deleteOne({ _id: reqDataObjectId });
 
     if (response.deletedCount > 0) {
       return [{ data: { message: 'Success!' } }, { status: 200 }];
@@ -28,8 +30,6 @@ const todosDelete = async (reqData: ObjectId): TodoPostReturn => {
     const error = err as CatchError;
 
     return [{ data: { message: error.message } }, { status: 503 }];
-  } finally {
-    await mc.client.close();
   }
 };
 

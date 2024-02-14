@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,16 +22,41 @@
       }
     ],
     "paths": {
-      "@/Components/*": ["./src/components/*"],
-      "@/Fetchers/*": ["./src/fetchers/*"],
-      "@/Styles/*": ["./src/styles/*"],
-      "@/Hooks/*": ["./src/hooks/*"],
-      "@/Api/*": ["./pages/api/*"],
-      "@/Types/*": ["./types/*"],
-      "@/ServerUtils/*": ["./utils/*"]
+      "@/Components/*": [
+        "./src/components/*"
+      ],
+      "@/Fetchers/*": [
+        "./src/fetchers/*"
+      ],
+      "@/Styles/*": [
+        "./src/styles/*"
+      ],
+      "@/Hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/Api/*": [
+        "./pages/api/*"
+      ],
+      "@/Types/*": [
+        "./types/*"
+      ],
+      "@/ServerUtils/*": [
+        "./utils/*"
+      ],
+      "@/Models/*": [
+        "./models/*"
+      ]
     },
     "target": "es2021"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/fetchers/todos/getTodos.tx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

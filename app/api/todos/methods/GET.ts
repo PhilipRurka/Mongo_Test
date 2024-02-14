@@ -1,5 +1,6 @@
 import { Document } from 'mongodb';
 
+import TodoModel from '@/Models/todos';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 
 type SuccessGet = [{ data: Document[] }, { status: number }];
@@ -12,23 +13,26 @@ type CatchError = {
 };
 
 const todosGet = async (): TodosGetReturn => {
-  const mc = await mongoConnect('todos');
-
-  if (!mc) {
+  try {
+    await mongoConnect();
+  } catch (error) {
     return [{ data: { message: 'Something went wrong with MongoConnection!' } }, { status: 500 }];
   }
 
   try {
-    const data = await mc.collection
+    const data = await TodoModel.collection
       .aggregate([
         {
           $addFields: {
             id: '$_id',
+            lastUpdated: '$last_updated',
+            createdAt: '$created_at',
           },
         },
         {
           $project: {
             _id: 0,
+            _created_at: 0,
           },
         },
       ])
@@ -39,8 +43,6 @@ const todosGet = async (): TodosGetReturn => {
     const error = err as CatchError;
 
     return [{ data: { message: error.message } }, { status: 503 }];
-  } finally {
-    await mc.client.close();
   }
 };
 

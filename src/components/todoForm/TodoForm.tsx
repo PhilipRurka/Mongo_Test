@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { ErrorSpan, Field, Form, Input, Label, Select } from '@/Components/form';
-import { TodoReq } from '@/Types/todos';
+import { TodoFrontend, TodoReq } from '@/Types/todos';
 
 const FormSchema = z.object({
   title: z.string().min(3).max(20),
@@ -13,12 +13,13 @@ const FormSchema = z.object({
 
 type FormSchemaType = z.infer<typeof FormSchema>;
 type TodoFormProps = {
+  defaultValues?: TodoFrontend;
   handleFormSubmit: (values: TodoReq) => void;
 };
 
 const priorityOptions = FormSchema.shape.priority.options;
 
-const TodoForm = ({ handleFormSubmit }: TodoFormProps) => {
+const TodoForm = ({ defaultValues, handleFormSubmit }: TodoFormProps) => {
   const {
     register,
     handleSubmit,
@@ -39,17 +40,34 @@ const TodoForm = ({ handleFormSubmit }: TodoFormProps) => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Field>
           <Label htmlFor="title">Title</Label>
-          <Input type="text" id="title" showErrorStyles={!!errors.title} {...register('title')} />
+          <Input
+            type="text"
+            id="title"
+            showErrorStyles={!!errors.title}
+            defaultValue={defaultValues?.title ?? ''}
+            {...register('title')}
+          />
           {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
         </Field>
         <Field>
           <Label htmlFor="message">Message</Label>
-          <Input type="text" id="message" showErrorStyles={!!errors.message} {...register('message')} />
+          <Input
+            type="text"
+            id="message"
+            showErrorStyles={!!errors.message}
+            defaultValue={defaultValues?.message ?? ''}
+            {...register('message')}
+          />
           {errors.message && <ErrorSpan>{errors.message.message}</ErrorSpan>}
         </Field>
         <Field>
           <Label htmlFor="priority">Priority</Label>
-          <Select id="priority" options={priorityOptions} {...register('priority')} />
+          <Select
+            id="priority"
+            options={priorityOptions}
+            defaultValue={defaultValues?.priority ?? ''}
+            {...register('priority')}
+          />
           {errors.priority && <ErrorSpan>{errors.priority.message}</ErrorSpan>}
         </Field>
         <div>

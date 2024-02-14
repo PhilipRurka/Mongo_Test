@@ -1,14 +1,16 @@
+import { ObjectId } from 'mongodb';
+
 import TodoModel from '@/Models/todos';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 import { TodoReq } from '@/Types/todos';
 
-type TodoPutReturn = Promise<[{ data: { message: string } }, { status: number }]>;
+type TodoPostReturn = Promise<[{ data: { message: string } }, { status: number }]>;
 
 type CatchError = {
   message: string;
 };
 
-const todosPut = async (reqData: TodoReq): TodoPutReturn => {
+const todosPost = async (reqData: TodoReq): TodoPostReturn => {
   try {
     await mongoConnect();
   } catch (error) {
@@ -16,7 +18,8 @@ const todosPut = async (reqData: TodoReq): TodoPutReturn => {
   }
 
   try {
-    await TodoModel.create(reqData);
+    const reqDataObjectId = new ObjectId(reqData.id);
+    await TodoModel.updateOne({ _id: reqDataObjectId }, reqData);
 
     return [{ data: { message: 'Success!' } }, { status: 200 }];
   } catch (err) {
@@ -26,4 +29,4 @@ const todosPut = async (reqData: TodoReq): TodoPutReturn => {
   }
 };
 
-export default todosPut;
+export default todosPost;

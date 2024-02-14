@@ -7,6 +7,7 @@ export type Todo = {
 };
 
 export type TodoReq = {
+  id?: string;
   title: string;
   message: string;
   priority: 'low' | 'medium' | 'high';
@@ -15,8 +16,8 @@ export type TodoReq = {
 export type TodoFrontend = {
   id: string;
   title: string;
-  created_at: Date;
-  last_updated: Date;
+  createdAt: Date;
+  lastUpdated: Date;
   message: string;
   priority: 'low' | 'medium' | 'high';
 };

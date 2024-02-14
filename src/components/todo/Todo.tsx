@@ -14,7 +14,9 @@ type DeleteTodos = (url: string, obj: { arg: string }) => Promise<Response | und
 
 const deleteTodoSWR: DeleteTodos = (url, { arg }) => deleteTodoFetcher(arg);
 
-const Todo = ({ todo: { id, title, message, priority, last_updated } }: TodoProps) => {
+const Todo = ({ todo }: TodoProps) => {
+  const { id, title, message, priority, lastUpdated } = todo;
+
   const { trigger: deleteTodo } = useSWRMutation('/api/todos', deleteTodoSWR);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -35,7 +37,7 @@ const Todo = ({ todo: { id, title, message, priority, last_updated } }: TodoProp
     <>
       {isEditModalOpen && (
         <Modal width="md" handleCloseModal={handleCloseEditModal}>
-          <EditTodo />
+          <EditTodo handleTriggerCloseModal={handleCloseEditModal} todo={todo} />
         </Modal>
       )}
       <div className="flex justify-between rounded-xl border border-cyan-600 p-4">
@@ -43,7 +45,7 @@ const Todo = ({ todo: { id, title, message, priority, last_updated } }: TodoProp
           <span>{title}</span>
           <p>{message}</p>
           <span>{`Priority: ${priority}`}</span>
-          <span className="block">{`Last Updated: ${last_updated}`}</span>
+          <span className="block">{`Last Updated: ${lastUpdated}`}</span>
         </div>
         <div>
           <button className="rounded-xl border border-blue-400 bg-blue-200 p-2" onClick={handleOpenEditModal}>

@@ -1,32 +1,14 @@
-import { Collection, Document, MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
-type CollectionsOptions = 'todos';
-type MongoReturn =
-  | undefined
-  | {
-      client: MongoClient;
-      collection: Collection<Document>;
-    };
-type MongoConnect = (collection: CollectionsOptions) => Promise<MongoReturn>;
-
-const mongoConnect: MongoConnect = async (collection) => {
+const mongoConnect: any = async () => {
   try {
     if (!process.env.MONGODB_URI) {
       throw Error('Client Failed');
     }
 
-    const client = new MongoClient(process.env.MONGODB_URI);
-
-    await client.connect();
-    const database = client.db(process.env.MONGODB_DATABASE);
-
-    return { client, collection: database.collection(collection) };
+    await mongoose.connect(`${process.env.MONGODB_URI}${process.env.MONGODB_DATABASE}`);
   } catch (error) {
-    console.error(
-      `Bad connection with MongoDB -> Database: ${process.env.MONGODB_DATABASE} -> Collection: ${collection}`
-    );
-
-    return undefined;
+    throw Error(`Bad connection with MongoDB -> Database: ${process.env.MONGODB_DATABASE}`);
   }
 };
 
