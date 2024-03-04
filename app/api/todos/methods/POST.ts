@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 
-import TodoModel from '@/Models/todos';
+import TodoModel from '@/Models/todo';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 import { TodoReq } from '@/Types/todos';
 

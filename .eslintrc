@@ -13,6 +13,6 @@
     "postcss.config.cjs",
     "prettier.config.cjs",
     "next.config.mjs",
-    "MongoDB-Playgrounds/*"
+    "mongodb/*"
   ]
 }

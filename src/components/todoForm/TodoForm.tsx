@@ -36,45 +36,43 @@ const TodoForm = ({ defaultValues, handleFormSubmit }: TodoFormProps) => {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Field>
-          <Label htmlFor="title">Title</Label>
-          <Input
-            type="text"
-            id="title"
-            showErrorStyles={!!errors.title}
-            defaultValue={defaultValues?.title ?? ''}
-            {...register('title')}
-          />
-          {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
-        </Field>
-        <Field>
-          <Label htmlFor="message">Message</Label>
-          <Input
-            type="text"
-            id="message"
-            showErrorStyles={!!errors.message}
-            defaultValue={defaultValues?.message ?? ''}
-            {...register('message')}
-          />
-          {errors.message && <ErrorSpan>{errors.message.message}</ErrorSpan>}
-        </Field>
-        <Field>
-          <Label htmlFor="priority">Priority</Label>
-          <Select
-            id="priority"
-            options={priorityOptions}
-            defaultValue={defaultValues?.priority ?? ''}
-            {...register('priority')}
-          />
-          {errors.priority && <ErrorSpan>{errors.priority.message}</ErrorSpan>}
-        </Field>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </Form>
-    </div>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Field>
+        <Label htmlFor="title">Title</Label>
+        <Input
+          type="text"
+          id="title"
+          showErrorStyles={!!errors.title}
+          defaultValue={defaultValues?.title ?? ''}
+          {...register('title')}
+        />
+        {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
+      </Field>
+      <Field>
+        <Label htmlFor="message">Message</Label>
+        <Input
+          type="text"
+          id="message"
+          showErrorStyles={!!errors.message}
+          defaultValue={defaultValues?.message ?? ''}
+          {...register('message')}
+        />
+        {errors.message && <ErrorSpan>{errors.message.message}</ErrorSpan>}
+      </Field>
+      <Field>
+        <Label htmlFor="priority">Priority</Label>
+        <Select
+          id="priority"
+          options={priorityOptions}
+          defaultValue={defaultValues?.priority ?? ''}
+          {...register('priority')}
+        />
+        {errors.priority && <ErrorSpan>{errors.priority.message}</ErrorSpan>}
+      </Field>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </Form>
   );
 };
 

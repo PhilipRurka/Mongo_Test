@@ -10,14 +10,20 @@
     "format-prettier": "prettier --write .",
     "debug-prettier": "npx prettier --debug-check .",
     "husky-post-install": "husky install && rm -rf .git/hooks && ln -s ../.husky .git/hooks",
-    "husky-allow-execute": "chmod +x .husky/pre-commit .husky/pre-push && chmod +x .git/hooks/pre-commit .git/hooks/pre-push && husky install"
+    "husky-allow-execute": "chmod +x .husky/pre-commit .husky/pre-push && chmod +x .git/hooks/pre-commit .git/hooks/pre-push && husky install",
+    "dump-local-db": "mongodump --uri=mongodb://localhost:27017 --out=mongodb/dump/local",
+    "dump-production-db": "mongodump --uri=mongodb+srv://philip_rurka@cluster0.pvszw5r.mongodb.net/ --out=mongodb/dump/production",
+    "restore_local-dump_into_local-db": "./mongodb/syncs/sync_local_to_local.sh",
+    "restore_production-dump_into_local-db": "./mongodb/syncs/sync_prod_to_local.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "bcrypt": "^5.1.1",
     "clsx": "^2.1.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.2",
     "next": "14.1.0",
+    "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
@@ -26,6 +32,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^20.11.16",
     "@types/react": "^18",
@@ -51,8 +58,14 @@
     "node": "20.11.0"
   },
   "ntl": {
+    "runner": "yarn",
     "descriptions": {
-      "dev": "Start the work lol"
+      "dev": "Start localhost:3000",
+      "build": "Lint and build",
+      "dump-local-db": "Dump local database in dump/local",
+      "dump-production-db": "Dump production database in dump/production",
+      "restore_local-dump_into_local-db": "Restore local database with dump/local",
+      "restore_production-dump_into_local-db": "Restore local database with dump/production"
     }
   }
 }

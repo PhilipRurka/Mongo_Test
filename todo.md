@@ -1,0 +1,4 @@
+- Backup Database every xh
+- Create versions for schemas
+- Deploy schema version
+- Create Production Deployment

@@ -1,4 +1,4 @@
-import TodoModel from '@/Models/todos';
+import TodoModel from '@/Models/todo';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 import { TodoReq } from '@/Types/todos';
 
@@ -8,7 +8,7 @@ type CatchError = {
   message: string;
 };
 
-const todosPut = async (reqData: TodoReq): TodoPutReturn => {
+const todoPut = async (reqData: TodoReq): TodoPutReturn => {
   try {
     await mongoConnect();
   } catch (error) {
@@ -26,4 +26,4 @@ const todosPut = async (reqData: TodoReq): TodoPutReturn => {
   }
 };
 
-export default todosPut;
+export default todoPut;

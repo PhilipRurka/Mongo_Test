@@ -1,6 +1,6 @@
 import { Document } from 'mongodb';
 
-import TodoModel from '@/Models/todos';
+import TodoModel from '@/Models/todo';
 import mongoConnect from '@/ServerUtils/mongoConnect';
 
 type SuccessGet = [{ data: Document[] }, { status: number }];

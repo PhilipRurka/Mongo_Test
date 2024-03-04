@@ -1,5 +1,6 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 import Todos from '@/Components/todos';
@@ -9,6 +10,8 @@ import Modal from '../modal';
 
 const Homepage = () => {
   const [isNewTodoModalOpen, setIsNewTodoModalOpen] = useState(false);
+
+  const { data: session } = useSession();
 
   const handleOpenNewTodoModal = () => {
     setIsNewTodoModalOpen(true);
@@ -25,6 +28,7 @@ const Homepage = () => {
           <AddNewTodo handleCloseModal={handleCloseModal} />
         </Modal>
       )}
+      <h1>User: {session?.user?.email}</h1>
       <Todos />
       <button onClick={handleOpenNewTodoModal}>Add new todo!</button>
     </main>

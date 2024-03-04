@@ -1,17 +1,17 @@
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
-import Login from '@/Components/login';
+import Register from '@/Components/register';
 import authOptions from '@/ServerUtils/authOptions';
 
-const LoginPage = async () => {
+const RegisterPage = async () => {
   const session = await getServerSession(authOptions);
 
   if (session) {
     redirect('dashboard');
   }
 
-  return <Login />;
+  return <Register />;
 };
 
-export default LoginPage;
+export default RegisterPage;
