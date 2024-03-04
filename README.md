@@ -2,73 +2,49 @@
 
 This projects stack is the following.
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <style>
-      .item {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        align-items: center;
-        gap: 15px;
-      }
-      .logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-      }
-      .name {
-        font-size: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <ul style='display: flex; flex-direction: column; gap: 15px; padding: 0;'>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=vercel" />
-        <span class='name'>Vercel</span>
-      </li>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=nextjs" />
-        <span class='name'>Nextjs</span>
-      </li>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=ts" />
-        <span class='name'>Typescript</span>
-      </li>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=mongodb" />
-        <span class='name'>Mongodb</span>
-      </li>
-      <li class='item'>
-        <img class='logo' src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/mongoose.png?raw=true" />
-        <span class='name'>Mongoose</span>
-      </li>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=tailwind" />
-        <span class='name'>Tailwind</span>
-      </li>
-      <li class='item'>
-        <img class='logo' src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/prettier.png?raw=true" />
-        <span class='name'>Prettier</span>
-      </li>
-      <li class='item'>
-        <img class='logo' src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/eslint.png?raw=true" />
-        <span class='name'>ESLint</span>
-      </li>
-      <li class='item'>
-        <img class='logo' src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/husky.png?raw=true" />
-        <span class='name'>Husky</span>
-      </li>
-      <li class='item'>
-        <img src="https://skillicons.dev/icons?i=nodejs" />
-        <span class='name'>Node v20.11.0</span>
-      </li>
-    </ul>
-  </body>
-</html>
-
+<table>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=vercel" width="48" height="48" alt="Vercel" /></td>
+    <td>Vercel</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=nextjs" width="48" height="48" alt="Next.js" /></td>
+    <td>Nextjs</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript" /></td>
+    <td>Typescript</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=mongodb" width="48" height="48" alt="TypeScript" /></td>
+    <td>Mongodb</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/mongoose.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
+    <td>Mongoose</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=tailwind" width="48" height="48" alt="TypeScript" /></td>
+    <td>Tailwind</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/prettier.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
+    <td>Prettier</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/eslint.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
+    <td>ESLint</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/husky.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
+    <td>Husky</td>
+  </tr>
+  <tr>
+    <td><img src="https://skillicons.dev/icons?i=nodejs" width="48" height="48" alt="TypeScript" /></td>
+    <td>Node - v20.11.0</td>
+  </tr>
+  <!-- Add more rows as needed -->
+</table>
 <br/>
 
 ## Post Clone
