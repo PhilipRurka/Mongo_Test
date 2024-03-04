@@ -6,45 +6,29 @@ This projects stack is the following.
   <tr>
     <td><img src="https://skillicons.dev/icons?i=vercel" width="48" height="48" alt="Vercel" /></td>
     <td>Vercel</td>
-  </tr>
-  <tr>
     <td><img src="https://skillicons.dev/icons?i=nextjs" width="48" height="48" alt="Next.js" /></td>
     <td>Nextjs</td>
-  </tr>
-  <tr>
     <td><img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript" /></td>
     <td>Typescript</td>
   </tr>
   <tr>
     <td><img src="https://skillicons.dev/icons?i=mongodb" width="48" height="48" alt="TypeScript" /></td>
     <td>Mongodb</td>
-  </tr>
-  <tr>
     <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/mongoose.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
     <td>Mongoose</td>
-  </tr>
-  <tr>
     <td><img src="https://skillicons.dev/icons?i=tailwind" width="48" height="48" alt="TypeScript" /></td>
     <td>Tailwind</td>
   </tr>
   <tr>
     <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/prettier.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
     <td>Prettier</td>
-  </tr>
-  <tr>
     <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/eslint.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
     <td>ESLint</td>
-  </tr>
-  <tr>
     <td><img src="https://github.com/PhilipRurka/todo-with-mongodb/blob/main/readme-assets/husky.png?raw=true" width="48" height="48" alt="TypeScript" /></td>
     <td>Husky</td>
   </tr>
-  <tr>
-    <td><img src="https://skillicons.dev/icons?i=nodejs" width="48" height="48" alt="TypeScript" /></td>
-    <td>Node - v20.11.0</td>
-  </tr>
-  <!-- Add more rows as needed -->
 </table>
+
 <br/>
 
 ## Post Clone
