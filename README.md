@@ -6,11 +6,6 @@ This projects stack is the following.
 <html>
   <head>
     <style>
-      .list {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
       .item {
         display: flex;
         flex-direction: row;
@@ -29,7 +24,7 @@ This projects stack is the following.
     </style>
   </head>
   <body>
-    <ul class='list'>
+    <ul style='display: flex; flex-direction: column; gap: 15px; padding: 0;'>
       <li class='item'>
         <img src="https://skillicons.dev/icons?i=vercel" />
         <span class='name'>Vercel</span>
