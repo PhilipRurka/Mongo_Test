@@ -5,16 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next lint && next build",
-    "start": "next start",
     "lint": "next lint",
     "format-prettier": "prettier --write .",
     "debug-prettier": "npx prettier --debug-check .",
-    "husky-post-install": "husky install && rm -rf .git/hooks && ln -s ../.husky .git/hooks",
-    "husky-allow-execute": "chmod +x .husky/pre-commit .husky/pre-push && chmod +x .git/hooks/pre-commit .git/hooks/pre-push && husky install",
-    "dump-local-db": "mongodump --uri=mongodb://localhost:27017 --out=mongodb/dump/local",
-    "dump-production-db": "mongodump --uri=mongodb+srv://philip_rurka@cluster0.pvszw5r.mongodb.net/ --out=mongodb/dump/production",
-    "restore_local-dump_into_local-db": "./mongodb/syncs/sync_local_to_local.sh",
-    "restore_production-dump_into_local-db": "./mongodb/syncs/sync_prod_to_local.sh"
+    "dump-local-db": "./mongodb/shellScripts/dump/dump_local.sh",
+    "dump-production-db": "./mongodb/shellScripts/dump/dump_prod.sh",
+    "restore_local-dump_into_local-db": "./mongodb/shellScripts/restore/sync_local_to_local.sh",
+    "restore_production-dump_into_local-db": "./mongodb/shellScripts/restore/sync_prod_to_local.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
