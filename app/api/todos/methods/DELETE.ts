@@ -9,7 +9,9 @@ type CatchError = {
   message: string;
 };
 
-const todosDelete = async (reqData: ObjectId): TodoPostReturn => {
+type TodosDelete = (reqData: ObjectId, userId: string) => TodoPostReturn;
+
+const todosDelete: TodosDelete = async (reqData, userId) => {
   try {
     await mongoConnect();
   } catch (error) {
@@ -17,9 +19,7 @@ const todosDelete = async (reqData: ObjectId): TodoPostReturn => {
   }
 
   try {
-    const reqDataObjectId = new ObjectId(reqData);
-
-    const response = await TodoModel.collection.deleteOne({ _id: reqDataObjectId });
+    const response = await TodoModel.collection.deleteOne({ _id: new ObjectId(reqData), user: new ObjectId(userId) });
 
     if (response.deletedCount > 0) {
       return [{ data: { message: 'Success!' } }, { status: 200 }];

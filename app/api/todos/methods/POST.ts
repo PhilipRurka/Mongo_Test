@@ -10,7 +10,9 @@ type CatchError = {
   message: string;
 };
 
-const todosPost = async (reqData: TodoReq): TodoPostReturn => {
+type TodoPost = (reqData: TodoReq, userId: string) => TodoPostReturn;
+
+const todosPost: TodoPost = async (reqData, userId) => {
   try {
     await mongoConnect();
   } catch (error) {
@@ -18,8 +20,7 @@ const todosPost = async (reqData: TodoReq): TodoPostReturn => {
   }
 
   try {
-    const reqDataObjectId = new ObjectId(reqData.id);
-    await TodoModel.updateOne({ _id: reqDataObjectId }, reqData);
+    await TodoModel.updateOne({ _id: new ObjectId(reqData.id), user: new ObjectId(userId) }, reqData);
 
     return [{ data: { message: 'Success!' } }, { status: 200 }];
   } catch (err) {

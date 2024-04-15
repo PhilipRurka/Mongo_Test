@@ -1,4 +1,4 @@
-import { Document } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 
 import TodoModel from '@/Models/todo';
 import mongoConnect from '@/ServerUtils/mongoConnect';
@@ -6,13 +6,13 @@ import mongoConnect from '@/ServerUtils/mongoConnect';
 type SuccessGet = [{ data: Document[] }, { status: number }];
 type ErrorGet = [{ data: { message: string } }, { status: number }];
 
-type TodosGetReturn = Promise<SuccessGet | ErrorGet>;
+type TodosGetReturn = (userId: string) => Promise<SuccessGet | ErrorGet>;
 
 type CatchError = {
   message: string;
 };
 
-const todosGet = async (): TodosGetReturn => {
+const todosGet: TodosGetReturn = async (userId) => {
   try {
     await mongoConnect();
   } catch (error) {
@@ -23,6 +23,11 @@ const todosGet = async (): TodosGetReturn => {
     const data = await TodoModel.collection
       .aggregate([
         {
+          $match: {
+            user: new ObjectId(userId),
+          },
+        },
+        {
           $addFields: {
             id: '$_id',
             lastUpdated: '$last_updated',
@@ -32,6 +37,7 @@ const todosGet = async (): TodosGetReturn => {
         {
           $project: {
             _id: 0,
+            _last_updated: 0,
             _created_at: 0,
           },
         },
