@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -12,7 +13,7 @@ const FormSchema = z.object({
 
 type FormSchemaType = z.infer<typeof FormSchema>;
 type AuthFormProps = {
-  submitButtonText: string;
+  submitButtonText: 'Login' | 'Register';
   handleFormSubmit: (value: UserReq) => void;
 };
 
@@ -29,6 +30,17 @@ const AuthForm = ({ submitButtonText, handleFormSubmit }: AuthFormProps) => {
     handleFormSubmit(values);
   };
 
+  const secondaryActionyButton = {
+    Login: {
+      text: 'Register',
+      path: '/register',
+    },
+    Register: {
+      text: 'Login',
+      path: '/',
+    },
+  } as const;
+
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Field>
@@ -43,6 +55,9 @@ const AuthForm = ({ submitButtonText, handleFormSubmit }: AuthFormProps) => {
       </Field>
       <div>
         <button type="submit">{submitButtonText}</button>
+        <Link href={secondaryActionyButton[submitButtonText].path}>
+          {secondaryActionyButton[submitButtonText].text}
+        </Link>
       </div>
     </Form>
   );
