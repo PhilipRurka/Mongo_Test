@@ -1,7 +1,9 @@
+import flowbiteLib from 'flowbite/plugin';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
+    './node_modules/flowbite-react/**/*.{cjs, js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -20,7 +22,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [flowbiteLib],
   safelist: [
     /** widths */
     'w-4',
