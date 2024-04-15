@@ -29,6 +29,12 @@ This projects stack is the following.
   </tr>
 </table>
 
+- next-auth
+- clsx
+- react-hook-form
+- swr
+- zod
+
 <br/>
 
 ## Post Clone
