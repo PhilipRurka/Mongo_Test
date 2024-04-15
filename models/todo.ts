@@ -17,6 +17,11 @@ const todoSchema = new Schema<Todo>(
       required: true,
       enum: ['low', 'medium', 'high'],
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
   },
   { timestamps: true }
 );

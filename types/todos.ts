@@ -1,9 +1,12 @@
+import { Types } from 'mongoose';
+
 export type Todo = {
   title: string;
   message: string;
   created_at: Date;
   last_updated: Date;
   priority: 'low' | 'medium' | 'high';
+  user: Types.ObjectId;
 };
 
 export type TodoReq = {
