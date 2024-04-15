@@ -6,8 +6,8 @@ import { ErrorSpan, Field, Form, Input, Label, Select } from '@/Components/form'
 import { TodoFrontend, TodoReq } from '@/Types/todos';
 
 const FormSchema = z.object({
-  title: z.string().min(3).max(20),
-  message: z.string().min(5).max(50),
+  title: z.string().min(3).max(50),
+  message: z.string().min(5).max(100),
   priority: z.enum(['low', 'medium', 'high']),
 });
 
