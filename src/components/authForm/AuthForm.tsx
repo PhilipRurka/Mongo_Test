@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -30,17 +29,6 @@ const AuthForm = ({ submitButtonText, handleFormSubmit }: AuthFormProps) => {
     handleFormSubmit(values);
   };
 
-  const secondaryActionyButton = {
-    Login: {
-      text: 'Register',
-      path: '/register',
-    },
-    Register: {
-      text: 'Login',
-      path: '/',
-    },
-  } as const;
-
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Field>
@@ -52,12 +40,19 @@ const AuthForm = ({ submitButtonText, handleFormSubmit }: AuthFormProps) => {
         <Label htmlFor="password">Password</Label>
         <Input id="password" type="password" showErrorStyles={!!errors.password} {...register('password')} />
         {errors.password && <ErrorSpan>{errors.password.message}</ErrorSpan>}
+        {submitButtonText === 'Login' && (
+          <button className="ms-auto text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+            Forgot Password?
+          </button>
+        )}
       </Field>
       <div>
-        <button type="submit">{submitButtonText}</button>
-        <Link href={secondaryActionyButton[submitButtonText].path}>
-          {secondaryActionyButton[submitButtonText].text}
-        </Link>
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 sm:w-auto"
+        >
+          {submitButtonText}
+        </button>
       </div>
     </Form>
   );
