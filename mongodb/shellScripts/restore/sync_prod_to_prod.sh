@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Remove the y to continue and add having to write out a matching string to continue. Look into color coding part of a string.
-# Also make it so I don't have to add ips everytime
-# Update Readme to include this new script
-
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 BOLD='\033[1m'

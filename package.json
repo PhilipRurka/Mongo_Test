@@ -11,7 +11,10 @@
     "dump-local-db": "./mongodb/shellScripts/dump/dump_local.sh",
     "dump-production-db": "./mongodb/shellScripts/dump/dump_prod.sh",
     "restore_local-dump_into_local-db": "./mongodb/shellScripts/restore/sync_local_to_local.sh",
-    "restore_production-dump_into_local-db": "./mongodb/shellScripts/restore/sync_prod_to_local.sh"
+    "restore_production-dump_into_local-db": "./mongodb/shellScripts/restore/sync_prod_to_local.sh",
+    "restore_production-dump_into_production-db": "./mongodb/shellScripts/restore/sync_prod_to_prod.sh",
+    "delete-mongodb-whitelist": "./mongodb/shellScripts/whitelist/deleteWhitelistEntries.sh",
+    "add-ip-mongodb-whitelist": "./mongodb/shellScripts/whitelist/updateWhiteListing.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -63,10 +66,13 @@
     "descriptions": {
       "dev": "Start localhost:3000",
       "build": "Lint and build",
-      "dump-local-db": "Dump local database in dump/local",
-      "dump-production-db": "Dump production database in dump/production",
-      "restore_local-dump_into_local-db": "Restore local database with dump/local",
-      "restore_production-dump_into_local-db": "Restore local database with dump/production"
+      "dump-local-db": "Dump --> dump local database in dump/local",
+      "dump-production-db": "Dump --> dump production database in dump/production",
+      "restore_local-dump_into_local-db": "Restore --> restore local database with dump/local",
+      "restore_production-dump_into_local-db": "Restore --> restore local database with dump/production",
+      "restore_production-dump_into_production-db": "Restore --> restore production database with dump/production",
+      "delete-mongodb-whitelist": "Whitelist --> Delete all ips from mongodb whitelist",
+      "add-ip-mongodb-whitelist": "Whitelist --> Add your current ip to the mongodb whitelist"
     }
   }
 }
