@@ -8,13 +8,13 @@
     "lint": "next lint",
     "format-prettier": "prettier --write .",
     "debug-prettier": "npx prettier --debug-check .",
-    "dump-local-db": "./mongodb/shellScripts/dump/dump_local.sh",
-    "dump-production-db": "./mongodb/shellScripts/dump/dump_prod.sh",
-    "restore_local-dump_into_local-db": "./mongodb/shellScripts/restore/sync_local_to_local.sh",
-    "restore_production-dump_into_local-db": "./mongodb/shellScripts/restore/sync_prod_to_local.sh",
-    "restore_production-dump_into_production-db": "./mongodb/shellScripts/restore/sync_prod_to_prod.sh",
-    "delete-mongodb-whitelist": "./mongodb/shellScripts/whitelist/deleteWhitelistEntries.sh",
-    "add-ip-mongodb-whitelist": "./mongodb/shellScripts/whitelist/updateWhiteListing.sh"
+    "dump-local-db": "./mongodb/scripts/dump/dump_local.sh",
+    "dump-production-db": "./mongodb/scripts/dump/dump_prod.sh",
+    "restore_local-dump_into_local-db": "./mongodb/scripts/restore/sync_local_to_local.sh",
+    "restore_production-dump_into_local-db": "./mongodb/scripts/restore/sync_prod_to_local.sh",
+    "restore_production-dump_into_production-db": "./mongodb/scripts/restore/sync_prod_to_prod.sh",
+    "delete-mongodb-whitelist": "./mongodb/scripts/whitelist/deleteWhitelistEntries.sh",
+    "add-ip-mongodb-whitelist": "./mongodb/scripts/whitelist/updateWhiteListing.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -43,6 +43,7 @@
     "@typescript-eslint/parser": "^6.20.0",
     "autoprefixer": "^10.0.1",
     "axios": "^1.6.8",
+    "deep-object-diff": "^1.1.9",
     "dotenv": "^16.4.5",
     "eslint": "^8",
     "eslint-config-airbnb-base": "^15.0.0",

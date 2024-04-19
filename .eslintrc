@@ -12,7 +12,9 @@
     "public",
     "postcss.config.cjs",
     "prettier.config.cjs",
+    "migrate-mongo-config.js",
     "next.config.mjs",
-    "mongodb/*"
+    "mongodb/*",
+    "migrations/*"
   ]
 }
